@@ -1,8 +1,12 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
-int main() {
-    cout<<"Hello world!";
-    return 0;
+int main(int argc, char * argv[]) {
+
+    cout<<"Hello world!"<<endl;
+
+    return EXIT_SUCCESS;
+
 }
