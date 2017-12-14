@@ -1,0 +1,173 @@
+<html>
+
+<head>
+    <title>Zoo en JavaScript</title>
+
+    <fieldset>
+        H --> Animales herbívoros <br> N --> Animales neutros <br> C --> Animales carnívoros <br>
+    </fieldset>
+
+    <script type="text/javascript">
+        // Variables globales -------------------------------------------------
+        var aLetras = new Array('H', 'N', 'C');
+        var paraCarnivoro = new Array('C', 'N');
+        var paraHervivoro = new Array('H', 'N');
+        var paraNeutro = new Array('C', 'H');
+        var cLetra = aLetras[Math.floor(Math.random() * aLetras.length)];
+        // -------------------------------------------------------------------
+
+        function obtenerAnimal(animalAnterior) {
+
+            if (animalAnterior === 'C') {
+
+                animal = paraCarnivoro[Math.floor(Math.random() * paraCarnivoro.length)];
+
+            } else if (animalAnterior === 'H') {
+
+                animal = paraHervivoro[Math.floor(Math.random() * paraHervivoro.length)];
+
+            } else {
+                animal = paraNeutro[Math.floor(Math.random() * paraNeutro.length)];;
+            }
+
+            return animal;
+
+        }
+
+        //calcular elementos por diagonal
+        function obtenerAnimalRenglonPrevio(animalAnterior, animalAnteriorSuperior) {
+
+            var c = animalAnterior + animalAnteriorSuperior;
+
+            if (c === 'CN' || c === 'NC' || c === 'CC') {
+
+                animal = paraCarnivoro[Math.floor(Math.random() * paraCarnivoro.length)];
+
+            } else if (c === 'HN' || c === 'NH' || c === 'HH') {
+
+                animal = paraHervivoro[Math.floor(Math.random() * paraHervivoro.length)];
+
+            } else if (c === 'CH' || c === 'HC') {
+
+                animal = 'N';
+
+            } else if (c === 'NN') {
+
+                animal = paraNeutro[Math.floor(Math.random() * paraNeutro.length)];;
+
+            }
+
+            return animal;
+
+        }
+
+
+        function genera_tabla() {
+
+            var cadena = " ";
+            document.getElementById("parrafo").textContent = cadena;
+
+            var ancho = prompt("¿Qué ancho quieres que tenga la tabla?");
+            var alto = prompt("¿Qué alto quieres que tenga la tabla?");
+            // Obtener la referencia del elemento body
+            var body = document.getElementsByTagName("body")[0];
+
+            // Crea un elemento <table> y un elemento <tbody>
+            var tabla = document.createElement("table");
+            var tblBody = document.createElement("tbody");
+            //Renglon actual
+            var renglon = [];           
+            //Renglon anterior
+            var renglonAnterior;
+            //Animal
+            var animal;
+
+            // Crea las celdas
+            for (var i = 0; i < ancho; i++) {
+
+                renglon = [];
+
+                // Crea las hileras de la tabla
+                var hilera = document.createElement("tr");
+
+                for (var j = 0; j < alto; j++) {
+                    // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+                    // texto sea el contenido de <td>, ubica el elemento <td> al final
+                    // de la hilera de la tabla
+                    var celda = document.createElement("td");
+
+                    //Es el primer elemento
+                    if (0 === j) {
+                        //Hay mas de un renglon  
+                        if (i > 0) {
+                            //Esta presente el elemento anterior de un renglon?  
+                            if (renglon[j - 1]) {
+                                //Obtener elemento por diagonal
+                                animal = obtenerAnimalRenglonPrevio(renglon[j - 1], renglonAnterior[j]);
+
+                            } else {
+                                //Obtener el elemento segun el renglon anterior    
+                                animal = obtenerAnimal(renglonAnterior[j]);
+                            }
+
+                        } else {
+                            //Asignar cualquier letra	                
+                            animal = aLetras[Math.floor(Math.random() * aLetras.length)];
+                        }
+
+                    } else {
+
+                        //Hay mas de un renglon
+                        if (i > 0) {
+
+                            //Calcular la letra por diagonal
+                            animal = obtenerAnimalRenglonPrevio(renglon[j - 1], renglonAnterior[j]);
+
+
+                        } else {
+                            //obtener por elemento anterior   
+                            animal = obtenerAnimal(renglon[j - 1]);
+
+                        }
+
+                    }
+
+
+                    //Guardar el animal
+                    renglon.push(animal);                  
+
+                    var textoCelda = document.createTextNode(animal);
+                    celda.appendChild(textoCelda);
+                    hilera.appendChild(celda);
+
+                }
+                //guardar el renglon actual
+                //animalAnterior = renglon[0];
+
+                renglonAnterior = renglon;
+
+                // agrega la hilera al final de la tabla (al final del elemento tblbody)
+                tblBody.appendChild(hilera);
+            }
+
+            // posiciona el <tbody> debajo del elemento <table>
+            tabla.appendChild(tblBody);
+            // appends <table> into <body>
+            body.appendChild(tabla);
+            // modifica el atributo "border" de la tabla y lo fija a "2";
+            tabla.setAttribute("border", "2");
+            document.getElementById("parrafo").appendChild(tabla); // Y esta tabla ya formada, se envía al div="parrafo"
+        }
+    </script>
+</head>
+
+<body>
+    <p>
+        <center><input type="button" value="Colocar animales" onclick="genera_tabla()"></center>
+    </p>
+    <center>
+        <p id="parrafo"></p>
+    </center>
+</body>
+
+</html>

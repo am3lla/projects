@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Objetos</title>
+<style>
+body {    
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+</style>
+</head>
+	<body>
+	    <canvas id="myCanvas" />
+	    <script>
+	    
+	        function setUp() {
+	        
+				var c = document.getElementById("myCanvas");			
+		
+				c.width = window.innerWidth;
+				c.height = window.innerHeight;		
+				
+				 								
+				var foo = Math.min(c.width , c.height-50 );
+				var length = foo/5;
+			
+				
+				var cx = c.width/2; 
+				var cy = c.height/2;  		
+						    
+		
+				var ctx = c.getContext("2d");
+			
+				drawGroup(ctx, cx-2*length, cy-2*length,length);		
+				drawGroup(ctx, cx-length, cy-length,length);		    
+				drawGroup(ctx, cx, cy,length);
+				drawGroup(ctx, cx+length, cy+length,length);
+				drawGroup(ctx, cx+2*length, cy+2*length,length);
+				
+			}
+			
+			function drawGroup(ctx, cx, cy, length) {	
+					  			   			
+				//Dibuja cuadro
+				ctx.rect(cx-length/2,cy-length/2,length,length);	
+				ctx.stroke();						
+				
+				//Dibuja la circunferencia del centro 
+				ctx.beginPath();
+				ctx.arc(cx,cy,length/4,0,2*Math.PI);
+				ctx.stroke();
+				
+			    //Dibuja la circunferencia exterior
+				ctx.beginPath();
+				ctx.arc(cx-length/2,cy+length/2,length/4,0,2*Math.PI);
+				ctx.stroke();
+																	
+			}	
+			
+			setUp();
+			
+			window.addEventListener("resize", setUp);	
+				
+		</script>
+	</body>
+</html>
