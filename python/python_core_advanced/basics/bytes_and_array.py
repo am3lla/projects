@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python3
 
 lst = [20,30,40,234]
 print(f" {lst= } { type(lst)= }")

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 radius = float(input("Enter the radius: "))
 pi = 22/7

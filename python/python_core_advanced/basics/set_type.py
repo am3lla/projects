@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 s = {10,20,30,"XYZ"}
 print(f"{ s= } { type(s)= }")
@@ -16,4 +16,3 @@ print(f"{ f= } { type(f)= }")
 
 #f.update([15,25,35])
 #f.remove(10)
-

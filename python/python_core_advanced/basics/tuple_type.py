@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
 tpl = ()
 print(f"{ tpl= }")
 
@@ -17,5 +18,6 @@ print( f"{ tpl.index('XYZ')=} ")
 
 lst = [67, 34, "XYX"]
 print(f"{ lst= } { type(lst)= }")
+
 tpl1 = tuple(lst)
 print(f"{ tpl1= } { type(tpl1)= }")

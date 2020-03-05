@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python3
 
 a,b = 10,5
 print(f" {a=} {b=}, Addition: {a+b=}")

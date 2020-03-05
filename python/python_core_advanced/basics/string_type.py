@@ -1,9 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 s = "You are awesome!"
 print(s)
 
-s1 = """
+s1 = 
+"""
 Your are the
 creator   of 
 your destiny

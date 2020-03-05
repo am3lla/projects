@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 lst = [1, 2, 3, 4, 5]
 

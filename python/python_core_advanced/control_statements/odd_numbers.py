@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 a, b  = [int(i) for i in input("Enter min and max value: ").split()] 
 

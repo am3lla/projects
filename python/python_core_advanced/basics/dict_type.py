@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python3
 
 dict1 = {1:"john",2:"bill",3:"bob"}
 print(f"{ dict1= } { type(dict1)= }")

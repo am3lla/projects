@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-a, b,c = 13, 100, 66
+a, b, c = 13, 100, 66
 print(f"{a} {b} {c}")
 print(type(a))
 
@@ -35,4 +35,3 @@ print(f"{h=} {float(h)=}")
 
 i = 10
 print(f"{i=} {bin(i)=} {hex(i)=} {oct(i)=}")
-

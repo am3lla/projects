@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 x, y = 20, 30
 print(f"{ (x==20 and y==30)=}")

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 student_id = int(input("Enter student id: ")) 
 name = input("Enter student name: ")

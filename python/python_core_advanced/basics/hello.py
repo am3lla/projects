@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Course instructor is  Bharath Thippireddy
 Created on Feb 18th 2020
