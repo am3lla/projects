@@ -16,6 +16,6 @@
 
 ## How to run
 
- - python3 <python file>
- - ./<python file>
- - docker run --rm -v $PWD:/tmp python:3.8.2-alpine3.8.2 /tmp/<python file>
+ - python3 file.py
+ - ./file.py
+ - docker run --rm -v $PWD:/tmp python:3.8.2-alpine3.11 /tmp/file.py
