@@ -1,4 +1,4 @@
-## Section 5: Operators and operands
+## Section 14: Encapsulation
  
 ## Files
 
